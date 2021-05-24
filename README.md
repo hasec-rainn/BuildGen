@@ -8,7 +8,7 @@ How it might work:
 
 How the room/building descriptions might be generated:
   * A room is divided into five parts: North, East, South, West, and Center. Each of these five parts can be filled with various items, furniture, etc.
-  * Each theme has its own file themeName.txt. This file contains descriptions associated with that theme that can be read in. The read in descriptions can then be used to describe one of the five parts of a room/building.
+  * Each theme has its own file themeName.txt. This file contains descriptions associated with that theme that can be read in. The read-in descriptions can then be used to describe one of the five parts of a room/building.
   * When a theme is selected by the user, a boolean will let BuildGen know to use that file when generating rooms.
   * When generating the room/building, BuildGen does the following:
       * Given all themes selected by the user, select a random theme
