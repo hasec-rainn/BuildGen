@@ -1,0 +1,30 @@
+{
+  "name": "buildgen",
+  "version": "1.0.0",
+  "description": "all the dependicies required to run buildgen",
+  "main": "buildgen.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev":"nodemon rptools.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SkyBoundCaptain/BuildGen.git"
+  },
+  "keywords": [
+    "javascript",
+    "html",
+    "css"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SkyBoundCaptain/BuildGen/issues"
+  },
+  "homepage": "https://github.com/SkyBoundCaptain/BuildGen#readme"
+}
