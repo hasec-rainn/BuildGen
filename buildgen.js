@@ -33,10 +33,31 @@ var descriptors = {
     overview : ""
 }
 
-var randomTheme = null
 
-/*Repeats 5 times to fill in the first 5 descriptors*/
-for(i=0; i<5; i++) {
+var randomTheme = null
+/*Repeats 5 times to fill in the first 5 descriptors. Could be made more efficient*/
     randomTheme = themeArr[ RandNum(themeArr.length) ]
-    console.log("Random output: ", randomTheme[ RandNumMod(randomTheme.length) ])
-}
+    descriptors.north = randomTheme[ RandNumMod(randomTheme.length)]
+    console.log("Output:", descriptors.north)
+
+    randomTheme = themeArr[ RandNum(themeArr.length) ]
+    descriptors.east = randomTheme[ RandNumMod(randomTheme.length)]
+    console.log("Output:", descriptors.east)
+
+    randomTheme = themeArr[ RandNum(themeArr.length) ]
+    descriptors.south = randomTheme[ RandNumMod(randomTheme.length)]
+    console.log("Output:", descriptors.south)
+
+    randomTheme = themeArr[ RandNum(themeArr.length) ]
+    descriptors.west = randomTheme[ RandNumMod(randomTheme.length)]
+    console.log("Output:", descriptors.west)
+
+    randomTheme = themeArr[ RandNum(themeArr.length) ]
+    descriptors.center = randomTheme[ RandNumMod(randomTheme.length)]
+    console.log("Output:", descriptors.center)
+
+console.log("North: ", descriptors.north)
+console.log("East: ", descriptors.east)
+console.log("South: ", descriptors.south)
+console.log("West: ", descriptors.west)
+console.log("Center: ", descriptors.center)
