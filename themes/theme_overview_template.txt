@@ -1,0 +1,9 @@
+9
+On the very first line is the total number of lines in the text file.
+This can be used in for loops to know the number of iterations needed for the loop.
+After that, on lines 2 through x, there are descriptors in line with the theme described in the file name
+The only difference between the _overview.txt files and the theme.txt files is that these descriptors are explictly
+tailored toward describing the overall feel of the room.
+Each line is its own contained/standalone descriptor. For example...
+The building is a small one; it looks to have once been a miniature ball room, but time has eroded it. It's floor is a smooth mahogany wood that has rotted away in certain spots. The pine wood walls are framed with cobblestone that runs into the ceiling, which is lined with dusty, cobweb-infested chandlers.
+The room is made of brick with a smooth stone floor. Dust floats in the air, and things look worn.
