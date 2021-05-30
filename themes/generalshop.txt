@@ -1,0 +1,10 @@
+10
+There is a wooden table. On it are large slices of cured meats.
+There is a granite service desk. On it is a small brass bell.
+There are wooden shelves lined with food: smoked fish, cured meats, fresh bread, small baskets of berries, and a variety of fruits.
+There are wooden shelves filled with smoked fish and cured meats.
+Fresh bread is placed in rows on oak shelves.
+Wooden shelves carry small baskets of berries and a variety of fruits.
+A display stand showcases some pottery. There is a wide pot with designs glossed on in black, a narrow vase painted blue and white, and a small green cup with designs etched into its sides.
+A display stand showcases some pottery. <input>
+Lying on the ground is a fluffy, human-sized teddy bear.
