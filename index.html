@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<head>
+
+    <meta charset="utf-8">
+    <title>BuildGen</title>
+
+    <link rel="stylesheet" href="style.css" media="screen">
+
+    <script src="index.js" charset="utf-8" defer></script>
+
+</head>
+
+<body>
+
+    <header>
+        <h1 class="site-title">RPTools</h1>
+
+        <nav class="navbar">
+            <ul class="navlist">
+                <li class="navitem navlink active"><a href="#">Home</a></li>
+                <li class="navitem navlink"><a href="#">BuildGen</a></li>
+                <li class="navitem navlink"><a href="#">OtherTool</a></li>
+                <li class="navitem navbar-post">
+                    <button type="button" id="navbar-post-button">Post</button>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main class="main-container">
+
+
+        <article class="content theme-selection">
+            <div class="theme-box theme-type"></div>
+            <input type="checkbox" id="Room" name="theme-type" value="Room">
+            <label for="Room">Room</label>
+            <div class="theme-box theme-content">
+                <ul>
+                    <li>
+                        <input type="checkbox" id="generalShop" name="theme-type" value="theme1">
+                        <label for="theme1">General Shop</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="spooky" name="theme-type" value="theme2">
+                        <label for="theme2">Spooky</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="theme3" name="theme-type" value="theme3">
+                        <label for="theme3">theme3</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="theme4" name="theme-type" value="theme4">
+                        <label for="theme4">theme4</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="theme5" name="theme-type" value="theme5">
+                        <label for="theme5">theme5</label>
+                    </li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="content theme-selection">
+            <div class="theme-box theme-type"></div>
+            <input type="checkbox" id="Building" name="theme-type" value="Building">
+            <label for="Building">Building</label>
+            <div class="theme-box theme-content">
+                <ul>
+                    <li>
+                        <input type="checkbox" id="theme1" name="theme-type" value="theme1">
+                        <label for="theme1">theme1</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="theme2" name="theme-type" value="theme2">
+                        <label for="theme2">theme2</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="theme3" name="theme-type" value="theme3">
+                        <label for="theme3">theme3</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="theme4" name="theme-type" value="theme4">
+                        <label for="theme4">theme4</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="theme5" name="theme-type" value="theme5">
+                        <label for="theme5">theme5</label>
+                    </li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="content discription-content">
+            <ul class="discription-list">
+                <li><p class="discription-text">test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin </p></li>
+                <li><p class="discription-text">test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin </p></li>
+                <li><p class="discription-text">test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin </p></li>
+                <li><p class="discription-text">test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin </p></li>
+                <li><p class="discription-text">test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin test discriptin </p></li>
+            </ul>
+        </article>
+
+        <article class="content posts-content">
+            <div class="post-search">
+                <input type="text" id="post-search-input" placeholder="Search...">
+                <button type="button" id="post-search-button">Search</button>
+            </div>
+            <div class="post">
+                <p class="post-name">The Crusty Tavern</p>
+                <p class="post-type">Building</p>
+                <p class="post-author">Ethan</p>
+                <p class="post-date">5/30/2021</p>
+            </div>
+
+            <div class="post">
+                <p class="post-name">The Nasty Bathroom</p>
+                <p class="post-type">Room</p>
+                <p class="post-author">RandomUser</p>
+                <p class="post-date">8/12/1998</p>
+            </div>
+        </article>
+
+
+    </main>
+
+    <div id="create-post-modal" class="hidden">
+        <div class="modal-dialog">
+
+            <div class="modal-header">
+              <h3>Create a Post</h3>
+              <button type="button" class="modal-close-button">&times;</button>
+            </div>
+    
+            <div class="modal-body">
+              <div class="post-input-element">
+                <label for="post-text-input">Post name</label>
+                <textarea id="post-text-input"></textarea>
+              </div>
+              <div class="post-input-element">
+                <label for="post-attribution-input">Author</label>
+                <input type="text" id="post-attribution-input">
+              </div>
+            </div>
+    
+            <div class="modal-footer">
+              <button type="button" class="modal-cancel-button">Cancel</button>
+              <button type="button" class="modal-accept-button">Create Post</button>
+            </div>
+    
+          </div>
+    </div>
+
+</body>

@@ -1,0 +1,18 @@
+<article class="content theme-selection">
+    <div class="theme-box theme-type"></div>
+    <input type="checkbox" class = "themeTypeSelection" id="{{themeType}}" name="theme-type" value="{{themeType}}">
+    <label for="{{themeType}}">{{themeType}}</label>
+    <div class="theme-box theme-content">
+        <ul>
+            {{#if (isRoom themeType)}}
+			    {{#each themesData}}
+		    		{{> theme themeType="Room"}}
+	    		{{/each}}
+            {{else}}
+                {{#each themesData}}
+				    {{> theme themeType="Building"}}
+    			{{/each}}
+            {{/if}}
+        </ul>
+    </div>
+</article>

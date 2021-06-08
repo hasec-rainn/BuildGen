@@ -1,0 +1,12 @@
+{{> header}}
+<main class="main-container">
+    <div class="user-info">
+        {{#with post}}
+        <h2 class="author-name">Author: {{postAuthor}}</h1>
+        <h2 class="post-name">Name: {{postName}}</h1>
+        <h2 class="post-type">Type: {{postType}}</h1>
+        <h2 class="post-date">Date: {{postDate}}</h1>
+        {{/with}}
+    </div>
+    {{>singleDescriptionContent}}
+</main>
