@@ -191,7 +191,7 @@ app.post("/buildgen/newGen", function(req,res,next) {
 
     /*Houses all themes and theme overviews in arrays. Is a Js object */
     AddAllSelectedThemes()
-    var buildGen = require("./public/tempgen.js")
+    var buildGen = require("./public/buildgen.js")
 
     /*The descriptor container. Begins each descriptor with paragraph
     formatting (line break + tab) followed by a random transitional phrase*/
@@ -245,7 +245,7 @@ app.post("/buildgen/newGen", function(req,res,next) {
 })
 
 var descriptors = require("./public/buildgen.js")
-const { themes } = require("./public/tempgen.js")
+const { themes } = require("./public/buildgen.js")
 //dump description into the description variable
 //console.log("Test:", descriptors)
 
