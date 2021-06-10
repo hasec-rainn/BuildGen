@@ -51,104 +51,98 @@ function GiveHome(req, res, next) {
 
 /****************************************Generation functions****************************************************** */
 
-    /*Array of string arrays. 2D matrix containing all selected themes, 
-    used to pick a random description from a random theme*/
-        var themeArr = []
+/*Array of string arrays. 2D matrix containing all selected themes, 
+used to pick a random description from a random theme*/
+    var themeArr = []
 
-    /*Array of string arrays. 2D matrix containing all selected themes' 
-    overviews, used to pick a random description from a random theme*/
-        var theme_overviewArr = []
+/*Array of string arrays. 2D matrix containing all selected themes' 
+overviews, used to pick a random description from a random theme*/
+    var theme_overviewArr = []
 
-    /*Adds in *a* corrosponding theme to themeArr and theme_overviewArr 
-    if the user selected that theme*/
-    function AddTheme(themeCheckbox, theme, theme_overview) {
-        /*If this theme's themeCheckbox is selected, add it into arrays*/
-        if(themeCheckbox) {
-            themeArr.push(theme)
-            theme_overviewArr.push(theme_overview)
-        }
+/*Adds in *a* corrosponding theme to themeArr and theme_overviewArr 
+if the user selected that theme*/
+function AddTheme(themeCheckbox, theme, theme_overview) {
+    /*If this theme's themeCheckbox is selected, add it into arrays*/
+    if(themeCheckbox) {
+        themeArr.push(theme)
+        theme_overviewArr.push(theme_overview)
+    }
+}
+
+/*When a user goes to generate a new description, this function
+is called. It adds *all* themes selected by the user*/
+function AddAllSelectedThemes() {
+
+/*If *a* particular theme was selected, pushes its theme and
+theme_overview variables to themeArr and theme_overviewArr
+respectively*/
+/*Currently not functional; true needs to be replaced */
+    
+/*Array of string arrays. 2D matrix containing all selected themes, 
+used to pick a random description from a random theme*/
+    themeArr = []
+
+/*Array of string arrays. 2D matrix containing all selected themes' 
+overviews, used to pick a random description from a random theme*/
+    theme_overviewArr = []
+
+    var i = 0;
+    /*Adds in each theme from theme arrays*/
+    if(genThemes[i].includes("General Shop")) {
+        AddTheme(true, 2, 2)
+        if(genThemes.length < i + 1) { 
+            i++ }
     }
 
-    /*When a user goes to generate a new description, this function
-    is called. It adds *all* themes selected by the user*/
-    function AddAllSelectedThemes() {
-
-        /*If *a* particular theme was selected, pushes its theme and
-        theme_overview variables to themeArr and theme_overviewArr
-        respectively*/
-        /*Currently not functional; true needs to be replaced */
-        
-    /*Array of string arrays. 2D matrix containing all selected themes, 
-    used to pick a random description from a random theme*/
-        themeArr = []
-
-    /*Array of string arrays. 2D matrix containing all selected themes' 
-    overviews, used to pick a random description from a random theme*/
-        theme_overviewArr = []
-
-        var i = 0;
-        if(genThemes[i].includes("General Shop"))
-        {
-            AddTheme(true, 2, 2)
-            if(genThemes.length < i + 1)
-            {
-                i++
-            }
-        }
-        if(genThemes[i].includes("Goblin Cave"))
-        {
-            AddTheme(true, 3, 3)
-            if(genThemes.length < i + 1)
-            {
-                i++
-            }
-        }
-        if(genThemes[i].includes("Magic Shop"))
-        {
-            AddTheme(true, 1, 1)
-            if(genThemes.length < i + 1)
-            {
-                i++
-            }
-        }
-        if(genThemes[i].includes("Spooky"))
-        {
-            AddTheme(true, 0, 0)
-            if(genThemes.length < i + 1)
-            {
-                i++
-            }
-        }
-        if(genThemes[i].includes("Wizard Tower"))
-        {
-            AddTheme(true, 4, 4)
-            if(genThemes.length < i + 1)
-            {
-                i++
-            }
-        }
-
+    if(genThemes[i].includes("Goblin Cave")) {
+        AddTheme(true, 3, 3)
+        if(genThemes.length < i + 1){
+            i++ }
     }
 
-    /*Provides a randomized transitional phrase, followed by paragraph
-    formatting (line break + tab)*/
-    function TransitonalPhrase(roomSegment) {
-        var nTransitions = 3
-        var rTrasition = Math.floor(Math.random() * nTransitions)
-
-        if(rTrasition == 0) {
-            return ("In the " + roomSegment + " of the room...\n\t")
-        } else if (rTrasition == 1) {
-            return ("Looking to the " + roomSegment + " of the room...\n\t")
-        } else {
-            return ("Observing the " + roomSegment + " of the room...\n\t")
-        }
-
+    if(genThemes[i].includes("Magic Shop")){
+        AddTheme(true, 1, 1)
+        if(genThemes.length < i + 1) {
+            i++ }
     }
 
-    /*Generates a random number from zero up to but not including max*/
-    function RandNum(max) {
-        return Math.floor(Math.random() * max) }
+    if(genThemes[i].includes("Spooky")) {
+        AddTheme(true, 0, 0)
+        if(genThemes.length < i + 1) {
+            i++ }
+    }
+
+    if(genThemes[i].includes("Wizard Tower")) {
+        AddTheme(true, 4, 4)
+        if(genThemes.length < i + 1) {
+            i++ }
+    }
+
+}
+
+/*Provides a randomized transitional phrase, followed by paragraph
+formatting (line break + tab)*/
+function TransitonalPhrase(roomSegment) {
+    var nTransitions = 5
+    var rTrasition = Math.floor(Math.random() * nTransitions)
+
+    if(rTrasition == 0) {
+        return ("In the " + roomSegment + " of the room...\n\t")
+    } else if (rTrasition == 1) {
+        return ("Looking to the " + roomSegment + " of the room...\n\t")
+    } else if (rTrasition == 2) {
+        return ("Observing the " + roomSegment + " of the room...\n\t")
+    } else if (rTrasition == 3) {
+        return ("Investigating the " + roomSegment + " of the room...\n\t")
+    } else {
+        return ("Moving to the " + roomSegment + " of the room...\n\t")
+    }
+
+}
+
+/*Generates a random number from zero up to but not including max*/
+function RandNum(max) {
+    return Math.floor(Math.random() * max) }
 
 
 /****************************************Generation functions****************************************************** */
