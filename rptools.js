@@ -160,8 +160,7 @@ function GiveGen(req, res, next) {
 }
 
 
-app.post("/post/newPost", function(req,res,next)
-{
+app.post("/post/newPost", function(req,res,next) {
     console.log("== req.body:", req.body)
     postData.push({
         postName: req.body.postName,
@@ -180,69 +179,68 @@ app.post("/post/newPost", function(req,res,next)
             res.status(200).send()
           }
         }
-      )
+    )
     //next()
 })
 
-app.post("/buildgen/newGen", function(req,res,next)
-{
+app.post("/buildgen/newGen", function(req,res,next) {
     console.log("== req.body:", req.body)
     genType = req.body.themeType
     genThemes = req.body.theme
 
 
-        /*Houses all themes and theme overviews in arrays. Is a Js object */
-        AddAllSelectedThemes()
-        var buildGen = require("./public/tempgen.js")
-    
-        /*The descriptor container. Begins each descriptor with paragraph
-        formatting (line break + tab) followed by a random transitional phrase*/
-        var descriptors = {
-            north : ("\n\t" + TransitonalPhrase("North end")),
-            east : ("\n\t" + TransitonalPhrase("East end")),
-            south : ("\n\t" + TransitonalPhrase("South end")),
-            west : ("\n\t" + TransitonalPhrase("West end")),
-            center : ("\n\t" + TransitonalPhrase("Center")),
-            overview : "\t"
-        }
-    
-        var randomTheme = null
-        var randomOverview = theme_overviewArr[RandNum(theme_overviewArr.length)]
-    
-        /*sets descriptors.north as a random description from a random theme*/
-        randomTheme = themeArr[ RandNum(themeArr.length)]
-        console.log(randomTheme)
-        descriptors.north += buildGen.themes[randomTheme][RandNum(buildGen.themes[randomTheme].length)]
-    
-        /*sets descriptors.south as a random description from a random theme*/
-        randomTheme = themeArr[ RandNum(themeArr.length)]
-        descriptors.south += buildGen.themes[randomTheme][RandNum(buildGen.themes[randomTheme].length)]
-    
-        /*sets descriptors.east as a random description from a random theme*/
-        randomTheme = themeArr[ RandNum(themeArr.length)]
-        descriptors.east += buildGen.themes[randomTheme][RandNum(buildGen.themes[randomTheme].length)]
-    
-        /*sets descriptors.west as a random description from a random theme*/
-        randomTheme = themeArr[ RandNum(themeArr.length)]
-        descriptors.west += buildGen.themes[randomTheme][RandNum(buildGen.themes[randomTheme].length)]
-    
-        /*sets descriptors.center as a random description from a random theme*/
-        randomTheme = themeArr[ RandNum(themeArr.length)]
-        descriptors.center += buildGen.themes[randomTheme][RandNum(buildGen.themes[randomTheme].length)]
-    
-        /*sets descriptors.overview as a random description from a random theme/theme_overview*/
-        descriptors.overview += buildGen.overviews[randomOverview][RandNum(buildGen.overviews[randomOverview].length)]
-    
-        description = (
-            descriptors.overview
-            + descriptors.north
-            + descriptors.east
-            + descriptors.south
-            + descriptors.west
-            + descriptors.center
-        )
-    
+    /*Houses all themes and theme overviews in arrays. Is a Js object */
+    AddAllSelectedThemes()
+    var buildGen = require("./public/tempgen.js")
 
+    /*The descriptor container. Begins each descriptor with paragraph
+    formatting (line break + tab) followed by a random transitional phrase*/
+    /*Filled with actual descriptions below */
+    var descriptors = {
+        north : ("\n\t" + TransitonalPhrase("North end")),
+        east : ("\n\t" + TransitonalPhrase("East end")),
+        south : ("\n\t" + TransitonalPhrase("South end")),
+        west : ("\n\t" + TransitonalPhrase("West end")),
+        center : ("\n\t" + TransitonalPhrase("Center")),
+        overview : "\t"
+    }
+
+    var randomTheme = null
+
+    /*sets descriptors.north as a random description from a random theme*/
+    randomTheme = themeArr[ RandNum(themeArr.length)]
+    descriptors.north += buildGen.themes[randomTheme][RandNum(buildGen.themes[randomTheme].length)]
+
+    /*sets descriptors.south as a random description from a random theme*/
+    randomTheme = themeArr[ RandNum(themeArr.length)]
+    descriptors.south += buildGen.themes[randomTheme][RandNum(buildGen.themes[randomTheme].length)]
+
+    /*sets descriptors.east as a random description from a random theme*/
+    randomTheme = themeArr[ RandNum(themeArr.length)]
+    descriptors.east += buildGen.themes[randomTheme][RandNum(buildGen.themes[randomTheme].length)]
+
+    /*sets descriptors.west as a random description from a random theme*/
+    randomTheme = themeArr[ RandNum(themeArr.length)]
+    descriptors.west += buildGen.themes[randomTheme][RandNum(buildGen.themes[randomTheme].length)]
+
+    /*sets descriptors.center as a random description from a random theme*/
+    randomTheme = themeArr[ RandNum(themeArr.length)]
+    descriptors.center += buildGen.themes[randomTheme][RandNum(buildGen.themes[randomTheme].length)]
+
+    /*sets descriptors.overview as a random description from a random theme/theme_overview*/
+    var randomOverview = theme_overviewArr[RandNum(theme_overviewArr.length)]
+    descriptors.overview += buildGen.overviews[randomOverview][RandNum(buildGen.overviews[randomOverview].length)]
+
+    /*The description that will be sent to the client. Composed of
+    all descriptors */
+    description = (
+        descriptors.overview
+        + descriptors.north
+        + descriptors.east
+        + descriptors.south
+        + descriptors.west
+        + descriptors.center
+    )
 
 })
 
