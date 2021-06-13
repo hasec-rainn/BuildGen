@@ -231,15 +231,15 @@ function sendGenerateRequest()
 		alert("You have not chosen a theme")
 	}
 	else{
-	var req = new XMLHttpRequest()
-	var reqUrl = "/buildgen/newGen"
-	console.log("== reqUrl:", reqUrl)
-	req.open('POST', reqUrl)
-	var reqBody = JSON.stringify(postContent)
-	req.setRequestHeader('Content-Type', 'application/json')
-	req.send(reqBody)
-	location.reload();
+		var req = new XMLHttpRequest()
+		var reqUrl = "/buildgen/newGen"
+		console.log("== reqUrl:", reqUrl)
+		req.open('POST', reqUrl)
+		var reqBody = JSON.stringify(postContent)
+		req.setRequestHeader('Content-Type', 'application/json')
+		req.send(reqBody)
 	}
+	//location.reload();
 }
 var genButton = document.getElementById('navbar-gen-button');
 if (genButton) {

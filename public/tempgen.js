@@ -30,22 +30,22 @@ splitting them up into string arrays.*/
 /*The above should only be called once (when the page is initially loaded) */
 
 var buildGen = {
-    themes: [
-        spooky,
-        magicshop,
-        generalshop,
-        goblinCave,
-        wizardTower
-    ],
 
-    overviews: [
-        spooky_overview,
-        magicshop_overivew,
-        generalshop_overview,
-        goblinCave_overview,
-        wizardTower_overview
-    ]
+    themes: {
+        "Spooky Room": spooky,
+        "Magic Shop Room": magicshop,
+        "General Shop Room": generalshop,
+        "Goblin Cave Room": goblinCave,
+        "Wizard Tower Room": wizardTower
+    },
 
+    overviews: {
+        "spooky_overview": spooky_overview,
+        "magicshop_overview": magicshop_overview,
+        "generalshop_overview": generalshop_overview,
+        "goblinCave_overview": goblinCave_overview,
+        "wizardTower_overview": wizardTower_overview
+    }
 }
 
 /*Prints out what is contained in descriptors in the order that it

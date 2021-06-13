@@ -5,6 +5,10 @@ var fs = require('fs')
 var hbs = exphbs.create({})
 var port = 3000
 
+/*Contains all the themes and theme overviews needed
+to create descriptions */
+var buildGen = require("./public/tempgen.js")
+
 var themeData = require("./themes/themeList.json")
 var postData = require("./posts/postData.json")
 var genType = ""
@@ -51,72 +55,25 @@ function GiveHome(req, res, next) {
 
 /****************************************Generation functions****************************************************** */
 
-/*Array of string arrays. 2D matrix containing all selected themes, 
-used to pick a random description from a random theme*/
-    var themeArr = []
-
-/*Array of string arrays. 2D matrix containing all selected themes' 
-overviews, used to pick a random description from a random theme*/
-    var theme_overviewArr = []
-
-/*Adds in *a* corrosponding theme to themeArr and theme_overviewArr 
-if the user selected that theme*/
-function AddTheme(themeCheckbox, theme, theme_overview) {
-    /*If this theme's themeCheckbox is selected, add it into arrays*/
-    if(themeCheckbox) {
-        themeArr.push(theme)
-        theme_overviewArr.push(theme_overview)
-    }
-}
-
 /*When a user goes to generate a new description, this function
 is called. It adds *all* themes selected by the user*/
 function AddAllSelectedThemes() {
 
-/*If *a* particular theme was selected, pushes its theme and
-theme_overview variables to themeArr and theme_overviewArr
-respectively*/
-/*Currently not functional; true needs to be replaced */
-    
-/*Array of string arrays. 2D matrix containing all selected themes, 
-used to pick a random description from a random theme*/
-    themeArr = []
+    var selectedThemes = []
 
-/*Array of string arrays. 2D matrix containing all selected themes' 
-overviews, used to pick a random description from a random theme*/
-    theme_overviewArr = []
-
-    var i = 0;
-    /*Adds in each theme from theme arrays*/
-    if(genThemes[i].includes("General Shop")) {
-        AddTheme(true, 2, 2)
-        if(genThemes.length < i + 1) { 
-            i++ }
+    /*Each element in "genThemes" corrosponds to the keyphrase of an
+    item in the js object "buildgen.themes". */
+    for(i=0; i < genThemes.length; i++ ) {
+        if( buildGen.themes[genThemes[i]] ) {
+            selectedThemes.push(buildGen.themes[genThemes[i]])
+        } else {
+            console.log("Error the " + i + "th buildGen theme DNE.")
+        }
     }
 
-    if(genThemes[i].includes("Goblin Cave")) {
-        AddTheme(true, 3, 3)
-        if(genThemes.length < i + 1){
-            i++ }
-    }
+    console.log("==Selected themes:", selectedThemes)
 
-    if(genThemes[i].includes("Magic Shop")){
-        AddTheme(true, 1, 1)
-        if(genThemes.length < i + 1) {
-            i++ }
-    }
-
-    if(genThemes[i].includes("Spooky")) {
-        AddTheme(true, 0, 0)
-        if(genThemes.length < i + 1) {
-            i++ }
-    }
-
-    if(genThemes[i].includes("Wizard Tower")) {
-        AddTheme(true, 4, 4)
-        if(genThemes.length < i + 1) {
-            i++ }
-    }
+    return selectedThemes
 
 }
 
@@ -160,6 +117,39 @@ function GiveGen(req, res, next) {
 }
 
 
+app.post("/buildgen/newGen", function(req,res,next) {
+    console.log("== req.body:", req.body)
+    genType = req.body.themeType
+    genThemes = req.body.theme
+
+    /*Takes in user selected themes and returns an array of the selected themes*/
+    var selectedThemes = AddAllSelectedThemes()
+
+    /*The descriptor container. Begins each descriptor with paragraph
+    formatting (line break + tab) followed by a random transitional phrase*/
+    /*Filled with actual descriptions below */
+    var descriptors = {
+        north : ("\n\t" + TransitonalPhrase("North end")),
+        east : ("\n\t" + TransitonalPhrase("East end")),
+        south : ("\n\t" + TransitonalPhrase("South end")),
+        west : ("\n\t" + TransitonalPhrase("West end")),
+        center : ("\n\t" + TransitonalPhrase("Center")),
+        overview : "\t"
+    }
+
+    /*The description that will be sent to the client. Composed of
+    all descriptors */
+    description = (
+        descriptors.overview
+        + descriptors.north
+        + descriptors.east
+        + descriptors.south
+        + descriptors.west
+        + descriptors.center
+    )
+
+})
+
 app.post("/post/newPost", function(req,res,next) {
     console.log("== req.body:", req.body)
     postData.push({
@@ -181,67 +171,6 @@ app.post("/post/newPost", function(req,res,next) {
         }
     )
     //next()
-})
-
-app.post("/buildgen/newGen", function(req,res,next) {
-    console.log("== req.body:", req.body)
-    genType = req.body.themeType
-    genThemes = req.body.theme
-
-
-    /*Houses all themes and theme overviews in arrays. Is a Js object */
-    AddAllSelectedThemes()
-    var buildGen = require("./public/buildgen.js")
-
-    /*The descriptor container. Begins each descriptor with paragraph
-    formatting (line break + tab) followed by a random transitional phrase*/
-    /*Filled with actual descriptions below */
-    var descriptors = {
-        north : ("\n\t" + TransitonalPhrase("North end")),
-        east : ("\n\t" + TransitonalPhrase("East end")),
-        south : ("\n\t" + TransitonalPhrase("South end")),
-        west : ("\n\t" + TransitonalPhrase("West end")),
-        center : ("\n\t" + TransitonalPhrase("Center")),
-        overview : "\t"
-    }
-
-    var randomTheme = null
-
-    /*sets descriptors.north as a random description from a random theme*/
-    randomTheme = themeArr[ RandNum(themeArr.length)]
-    descriptors.north += buildGen.themes[randomTheme][RandNum(buildGen.themes[randomTheme].length)]
-
-    /*sets descriptors.south as a random description from a random theme*/
-    randomTheme = themeArr[ RandNum(themeArr.length)]
-    descriptors.south += buildGen.themes[randomTheme][RandNum(buildGen.themes[randomTheme].length)]
-
-    /*sets descriptors.east as a random description from a random theme*/
-    randomTheme = themeArr[ RandNum(themeArr.length)]
-    descriptors.east += buildGen.themes[randomTheme][RandNum(buildGen.themes[randomTheme].length)]
-
-    /*sets descriptors.west as a random description from a random theme*/
-    randomTheme = themeArr[ RandNum(themeArr.length)]
-    descriptors.west += buildGen.themes[randomTheme][RandNum(buildGen.themes[randomTheme].length)]
-
-    /*sets descriptors.center as a random description from a random theme*/
-    randomTheme = themeArr[ RandNum(themeArr.length)]
-    descriptors.center += buildGen.themes[randomTheme][RandNum(buildGen.themes[randomTheme].length)]
-
-    /*sets descriptors.overview as a random description from a random theme/theme_overview*/
-    var randomOverview = theme_overviewArr[RandNum(theme_overviewArr.length)]
-    descriptors.overview += buildGen.overviews[randomOverview][RandNum(buildGen.overviews[randomOverview].length)]
-
-    /*The description that will be sent to the client. Composed of
-    all descriptors */
-    description = (
-        descriptors.overview
-        + descriptors.north
-        + descriptors.east
-        + descriptors.south
-        + descriptors.west
-        + descriptors.center
-    )
-
 })
 
 var descriptors = require("./public/buildgen.js")
