@@ -56,26 +56,30 @@ function GiveHome(req, res, next) {
 /****************************************Generation functions****************************************************** */
 
 /*When a user goes to generate a new description, this function
-is called. It adds *all* themes selected by the user*/
-function AddAllSelectedThemes() {
+is called. It adds *all* themes & theme overviews selected by the user*/
+function AddSelection() {
 
-    var selectedThemes = []
+    var selectedItems = {
+        themes: [],
+        overviews: []
+    }
 
     /*Each element in "genThemes" corrosponds to the keyphrase of an
     item in the js object "buildgen.themes". */
     for(i=0; i < genThemes.length; i++ ) {
         if( buildGen.themes[genThemes[i]] ) {
-            selectedThemes.push(buildGen.themes[genThemes[i]])
+            selectedItems.themes.push(buildGen.themes[genThemes[i]])
         } else {
-            console.log("Error the " + i + "th buildGen theme DNE.")
+            console.log("AddSelection: Error the " 
+            + i + "th buildGen theme DNE.")
         }
     }
 
-    console.log("==Selected themes:", selectedThemes)
-
-    return selectedThemes
-
+    /*console.log("==Selected themes:", selectedItems.themes)*/
+    return selectedItems
 }
+
+
 
 /*Provides a randomized transitional phrase, followed by paragraph
 formatting (line break + tab)*/
@@ -102,6 +106,8 @@ function RandNum(max) {
     return Math.floor(Math.random() * max) }
 
 
+
+
 /****************************************Generation functions****************************************************** */
 
 
@@ -110,7 +116,6 @@ This is because currently the homepage houses all the html functionality
 required for buildgen */
 app.get("/buildgen", GiveGen)
 function GiveGen(req, res, next) {
-
     res.status(200).render('index', {themesData: themeData, postsData: postData, type: genType, postData: description})
     console.log(genType)
     console.log(genThemes)
@@ -122,20 +127,47 @@ app.post("/buildgen/newGen", function(req,res,next) {
     genType = req.body.themeType
     genThemes = req.body.theme
 
-    /*Takes in user selected themes and returns an array of the selected themes*/
-    var selectedThemes = AddAllSelectedThemes()
+    /*Checks which themes the user selected and returns an array of 
+    the themes that were selected*/
+    var selectedItems = AddSelection()
 
     /*The descriptor container. Begins each descriptor with paragraph
     formatting (line break + tab) followed by a random transitional phrase*/
     /*Filled with actual descriptions below */
     var descriptors = {
-        north : ("\n\t" + TransitonalPhrase("North end")),
-        east : ("\n\t" + TransitonalPhrase("East end")),
-        south : ("\n\t" + TransitonalPhrase("South end")),
-        west : ("\n\t" + TransitonalPhrase("West end")),
-        center : ("\n\t" + TransitonalPhrase("Center")),
-        overview : "\t"
+        north: ("\n    " + TransitonalPhrase("North end")),
+        east: ("\n    " + TransitonalPhrase("East end")),
+        south: ("\n    " + TransitonalPhrase("South end")),
+        west: ("\n    " + TransitonalPhrase("West end")),
+        center: ("\n    " + TransitonalPhrase("Center")),
+        overview: "    "
     }
+
+
+    /*Giving the descriptors object actual descriptions */
+    var randomTheme = RandNum(selectedItems.themes.length)
+    var randomDesc = RandNum(selectedItems.themes[randomTheme].length)
+    descriptors.north += selectedItems.themes[randomTheme][randomDesc]
+
+    randomTheme = RandNum(selectedItems.themes.length)
+    randomDesc = RandNum(selectedItems.themes[randomTheme].length)
+    descriptors.east += selectedItems.themes[randomTheme][randomDesc]
+
+    randomTheme = RandNum(selectedItems.themes.length)
+    randomDesc = RandNum(selectedItems.themes[randomTheme].length)
+    descriptors.south += selectedItems.themes[randomTheme][randomDesc]
+
+    randomTheme = RandNum(selectedItems.themes.length)
+    randomDesc = RandNum(selectedItems.themes[randomTheme].length)
+    descriptors.west += selectedItems.themes[randomTheme][randomDesc]
+
+    randomTheme = RandNum(selectedItems.themes.length)
+    randomDesc = RandNum(selectedItems.themes[randomTheme].length)
+    descriptors.center += selectedItems.themes[randomTheme][randomDesc]
+
+
+    console.log("Descriptorss value: ", descriptors)
+
 
     /*The description that will be sent to the client. Composed of
     all descriptors */
