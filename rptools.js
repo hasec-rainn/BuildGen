@@ -101,12 +101,11 @@ function TransitonalPhrase(roomSegment) {
 
 }
 
+
+
 /*Generates a random number from zero up to but not including max*/
 function RandNum(max) {
     return Math.floor(Math.random() * max) }
-
-
-
 
 /****************************************Generation functions****************************************************** */
 
@@ -166,9 +165,6 @@ app.post("/buildgen/newGen", function(req,res,next) {
     descriptors.center += selectedItems.themes[randomTheme][randomDesc]
 
 
-    console.log("Descriptorss value: ", descriptors)
-
-
     /*The description that will be sent to the client. Composed of
     all descriptors */
     description = (
@@ -180,6 +176,10 @@ app.post("/buildgen/newGen", function(req,res,next) {
         + descriptors.center
     )
 
+    console.log("Description: ", description)
+
+    /*Send description as a response*/
+    res.send(description)
 })
 
 app.post("/post/newPost", function(req,res,next) {
