@@ -208,7 +208,7 @@ for(var i = 0; i < checkBoxButtons.length; i++)
 
 
 function sendGenerateRequest() {
-	var descriptionBox = document.getElementsByClassName('discription-list')
+	var descriptionBox = document.getElementById('description-box')
 	var themeType = "None"
 
 	for(var i = 0; i < typeCheckBoxButtons.length; i++) {
@@ -248,6 +248,7 @@ function sendGenerateRequest() {
 	}
 	//location.reload();
 }
+
 var genButton = document.getElementById('navbar-gen-button');
 if (genButton) {
 	genButton.addEventListener("click", sendGenerateRequest)
