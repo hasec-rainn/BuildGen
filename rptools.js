@@ -7,7 +7,7 @@ var port = 3000
 
 /*Contains all the themes and theme overviews needed
 to create descriptions */
-var buildGen = require("./public/tempgen.js")
+var buildGen = require("./public/buildgen.js")
 
 var themeData = require("./themes/themeList.json")
 var postData = require("./posts/postData.json")
@@ -134,12 +134,12 @@ app.post("/buildgen/newGen", function(req,res,next) {
     formatting (line break + tab) followed by a random transitional phrase*/
     /*Filled with actual descriptions below */
     var descriptors = {
-        north: ("\n    " + TransitonalPhrase("North end")),
-        east: ("\n    " + TransitonalPhrase("East end")),
-        south: ("\n    " + TransitonalPhrase("South end")),
-        west: ("\n    " + TransitonalPhrase("West end")),
-        center: ("\n    " + TransitonalPhrase("Center")),
-        overview: "    "
+        north: ("\n\t" + TransitonalPhrase("North end")),
+        east: ("\n\t" + TransitonalPhrase("East end")),
+        south: ("\n\t" + TransitonalPhrase("South end")),
+        west: ("\n\t" + TransitonalPhrase("West end")),
+        center: ("\n\t" + TransitonalPhrase("Center")),
+        overview: "\t"
     }
 
 
@@ -166,14 +166,14 @@ app.post("/buildgen/newGen", function(req,res,next) {
 
 
     /*The description that will be sent to the client. Composed of
-    all descriptors */
+    all descriptors and additional formatting*/
     description = (
         descriptors.overview
-        + descriptors.north
-        + descriptors.east
-        + descriptors.south
-        + descriptors.west
-        + descriptors.center
+        + "\n" + descriptors.north
+        + "\n" + descriptors.east
+        + "\n" + descriptors.south
+        + "\n" + descriptors.west
+        + "\n" + descriptors.center
     )
 
     console.log("Description: ", description)

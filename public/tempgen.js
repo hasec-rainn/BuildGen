@@ -48,6 +48,6 @@ var buildGen = {
     }
 }
 
-/*Prints out what is contained in descriptors in the order that it
+/*Exports out what is contained in descriptors in the order that it
 would be printed out in the description container*/
 module.exports = buildGen
