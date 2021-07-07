@@ -200,23 +200,24 @@ function themeCheckBoxes()
 			checkBoxButtons[i].checked = false
 	}
 }
+
 for(var i = 0; i < checkBoxButtons.length; i++)
 {
 	checkBoxButtons[i].addEventListener('click',themeCheckBoxes)
 }
 
 
-function sendGenerateRequest()
-{
+function sendGenerateRequest() {
+	var descriptionBox = document.getElementById('description-box')
 	var themeType = "None"
-	for(var i = 0; i < typeCheckBoxButtons.length; i++)
-	{
+
+	for(var i = 0; i < typeCheckBoxButtons.length; i++) {
 		if(typeCheckBoxButtons[i].checked)
 			themeType = typeCheckBoxButtons[i].id
 	}
+
 	var themes = []
-	for(var i = 0; i < checkBoxButtons.length; i++)
-	{
+	for(var i = 0; i < checkBoxButtons.length; i++) {
 		if(checkBoxButtons[i].checked)
 			themes.push(checkBoxButtons[i].id)
 	}
@@ -226,21 +227,28 @@ function sendGenerateRequest()
 		theme: themes
 	}
 
-	if(themeType == "None" || (themes === undefined || themes.length < 1))
-	{
+	if(themeType == "None" || (themes === undefined || themes.length < 1)) {
 		alert("You have not chosen a theme")
+	} else {
+		var req = new XMLHttpRequest()
+		var reqUrl = "/buildgen/newGen"
+		console.log("== reqUrl:", reqUrl)
+
+		req.open('POST', reqUrl)
+			var reqBody = JSON.stringify(postContent)
+			req.responseType = 'text'
+			req.setRequestHeader('Content-Type', 'application/json')
+
+		req.onload = function() {
+			console.log("Response: ", req.response)
+			descriptionBox.value = req.response
+		}
+
+		req.send(reqBody)
 	}
-	else{
-	var req = new XMLHttpRequest()
-	var reqUrl = "/buildgen/newGen"
-	console.log("== reqUrl:", reqUrl)
-	req.open('POST', reqUrl)
-	var reqBody = JSON.stringify(postContent)
-	req.setRequestHeader('Content-Type', 'application/json')
-	req.send(reqBody)
-	location.reload();
-	}
+	//location.reload();
 }
+
 var genButton = document.getElementById('navbar-gen-button');
 if (genButton) {
 	genButton.addEventListener("click", sendGenerateRequest)
