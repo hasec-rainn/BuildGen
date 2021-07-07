@@ -241,7 +241,7 @@ function sendGenerateRequest() {
 
 		req.onload = function() {
 			console.log("Response: ", req.response)
-			descriptionBox.textContent = req.response
+			descriptionBox.value = req.response
 		}
 
 		req.send(reqBody)
