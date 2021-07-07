@@ -28,9 +28,9 @@ ul {
 	padding: 10px 20px;
 	font-size: 45px;
 	font-weight: 500;
-	text-shadow: 0px 0px 3px whitesmoke;
+	text-shadow: 0px 0px 3px #e3e3e3;
 	background-color: #ba3030;
-	color: #e3e3e3;
+	color: whitesmoke;
 	border-style: solid;
 	border-color: #e3e3e3;
 	border-width: 2px;
@@ -124,6 +124,19 @@ ul {
 	box-shadow: inset 0px 0px 10px 5px silver;
 	
 	min-width: 1000px;
+}
+
+.home {
+	flex-direction: column;
+	padding-top: 1.5%;
+	padding-bottom: 2%;
+	padding-bottom: 30%;
+	padding-left: 3%;
+	padding-right: 15%;
+}
+
+.home p {
+	margin-bottom: 0px;
 }
 
 .user-info {
