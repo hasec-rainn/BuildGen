@@ -1,10 +1,10 @@
-There is a polished oak table. On it is an assortment of jewlery worth (fill in the blank).
-An iron display case shows off a number of items behind a glass barrier. Inside is (fill in the blank).
-A wooden table covered with a red velvet cloth has three items neatly lined up on it: (fill in the blank)
+There is a polished oak table. On it is an assortment of jewlery worth ___.
+An iron display case shows off a number of items behind a glass barrier. Inside is ___.
+A wooden table covered with a red velvet cloth has three items neatly lined up on it: ___.
 A brass rack holds a variety of magic staffs.
-There is a weapon halfway embedded in a stone. It is (fill in the blank)
+There is a weapon halfway embedded in a stone. It is ___.
 A crystal ball floats above a dark pine table. Inside the ball, a purple mist swirls and churns like the waves of the sea.
 There is a oak service desk fitted with glass, allowing items to be placed and viewed from inside the desk. On top of the desk is a small copper bell with the words "ring for service" etched into it in common.
 There is a maple service desk. On top of the desk is a small iron bell.
-An iron rack holds a variety of enchanted weapons: (fill in the blank)
+An iron rack with the caption "Enchanted" holds a variety of weapons: ___.
 A large book rests upon a polished oak lecturn. The book details the magical items sold at the shop.
