@@ -28,11 +28,12 @@ ul {
 	padding: 10px 20px;
 	font-size: 45px;
 	font-weight: 500;
-	text-shadow: -3px 1px 10px whitesmoke;
+	text-shadow: 0px 0px 3px whitesmoke;
 	background-color: #ba3030;
 	color: #e3e3e3;
 	border-style: solid;
 	border-color: #e3e3e3;
+	border-width: 2px;
 	border-radius: 3px;
 	position: relative;
 	z-index: 1;
@@ -45,12 +46,14 @@ ul {
 	margin-left: 5%;
 	margin-right: 5%;
 	border-style: solid;
-	border-color: #e3e3e3;	
+	border-color: #e3e3e3;
+	border-width: 2px;	
 	background-color: #b8b8b8;
 	border-radius: 3px;
 	position: relative;
 	z-index: 1;
 	box-shadow: 0px 15px 25px -13px black;
+	
 	
 	min-width: 1006px;
 }
@@ -83,12 +86,13 @@ ul {
 
 .navbar-post {
 	position: absolute;
-	right: 20%;
+	top: 15%;
+	right: 18.5%;
 }
 
 .navbar-gen {
 	position: absolute;
-	right: 50%
+	right: 53.3%;
 }
 
 #navbar-gen-button,
@@ -99,7 +103,7 @@ ul {
 	font-size: 16px;
 	cursor: pointer;
 	
-	text-shadow: -3px 1px 10px whitesmoke;
+	text-shadow: 0px 0px 4px whitesmoke;
 	background-color: #ba3030;
 	color: #e3e3e3;
 	border-style: solid;
@@ -131,7 +135,8 @@ ul {
 	flex: 0 0 12%;
 	min-width: 150px;
 	border-style: none solid none none;
-	border-color: #c9c1a1;
+	border-color: #ba3030;
+	border-width: 2px;
 }
 
 label[for="Room"],
@@ -148,7 +153,8 @@ label[for="Building"] {
 	flex: 0 0 26%;
 	min-width: 350px;
 	border-style: none solid none none;
-	border-color: #c9c1a1;
+	border-color: #ba3030;
+	border-width: 2px;
 }
 
 .posts-content{
@@ -279,7 +285,7 @@ label[for="Building"] {
 .modal-cancel-button {
 	font-size: 20px;
 	font-weight: 600;
-	background-color: #whitesmoke;
+	background-color: whitesmoke;
 	color: #ba3030;
 	border: 3px solid #c9c1a1;
 	border-radius: 5px;
