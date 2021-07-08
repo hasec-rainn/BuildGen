@@ -3,8 +3,8 @@ Skeletons make a mound that reaches up to the ceiling. Arms, legs, and skulls po
 A chair is turned to face toward one of the walls. On it is a skeleton who looks up at the ceiling, its mouth wide open.
 A broken chandiler lies on the floor and is slumped up against a pile of rubble. It is made of copper and cloaked in cobwebs.
 A broken chair lies on the floor, slumped up against a pile of rubble. It is made of old wood and cloaked in cobwebs.
-Holes line every inch of the ground; fecal matter lies inside, and rats poke their heads out to sniff for food.
-Holes line the ground; murky water lies inside, and bugs occasionally scurry in and out of the pools.
+Holes line every inch of the floor; fecal matter lies inside, and rats poke their heads out to sniff for food.
+Holes line the ground; murky water rests inside, and bugs occasionally scurry in and out of the pools.
 There is a large table. It's warped, made of rusted iron and covered with splatters of blood. On it are various bloodied tools and weapons.
 There is a table. It's warped, made of old wood and covered with spots of blood. On it are various tools and weapons.
 There is a shrine of bone and melted wax candles made to a creature flayed on the wall. It's intestines spill out and droop down to touch the floor.
@@ -21,5 +21,12 @@ Dead animals lie on the ground, looking drained of life. There are two squirrels
 Bloodied ears dot the ground. There look to be a few dozen.
 Cut off fingers are lined up neatly on a small stool. They are speckled with blood and begining to rot.
 There is a desk made of dark oak. One of the drawers is slightly ajar, with something sticking out of it. On closer inspection, the item appears to be a severed arm.
-A dog's head faces one of the walls. It is half-eatten and bloodied, having been severed from the rest of the dog.
-A rusted iron key.
+A dog's severed head faces one of the walls. It is half-eatten and bloodied.
+A rusted iron key embedes itself into the crown of a hollow skull. The skull surrounding the key harbors large cracks.
+Red strings curl around a silver key caked in mud lying on the floor.
+Picture frames lie face down on a small table covered by a filthy white cloth. Whoever picks up the frame finds a small, realistic painting of someone they love inside. Only, some of the features are perverted: ___.
+There is a small wooden box on the floor. It is bright red and well polished, and attached to its side is a lever. Opening it reveals it to be a music box afixed with a mirror inside. Turning the lever causes a distorted song to play.
+There is a rocky chair. It sways back and fourth, as if someone had just been using it.
+There is a corpse on the floor. Whoever first inspects it recognizes it as a loved one. As soon as they look away, however, the corpse looks as it does to everyone else: mangled beyond recognition.
+Whispers echo in the empty space. For they who's hearing is superior, the whispers reflect a conversation they had in the past, one which they regret.
+Light pours through a small hole. If there is a wall nearby, it is in the wall. Otherwise, it is in the floor. The first look through the hole reveals a ballroom where corpses waltz to a silent beat. After looking away, the light disappears and only darkness can be seen through the hole.
