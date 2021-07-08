@@ -13,6 +13,7 @@ var themeData = require("./themes/themeList.json")
 var postData = require("./posts/postData.json")
 var genType = ""
 var genThemes = [""]
+/*NNvar genOverviews = [""] */
 var description =""
 console.log(themeData)
 
@@ -43,7 +44,7 @@ function RequestReceived(req, res, next) {
 
 app.get("/", GiveHome)
 function GiveHome(req, res, next) {
-    res.status(200).render('index', {themesData: themeData, postsData: postData})
+    res.status(200).render('home', {themesData: themeData, postsData: postData})
 }
 
 
@@ -125,6 +126,7 @@ app.post("/buildgen/newGen", function(req,res,next) {
     console.log("== req.body:", req.body)
     genType = req.body.themeType
     genThemes = req.body.theme
+    /*NNgenOverviews = req.body.overviews */
 
     /*Checks which themes the user selected and returns an array of 
     the themes that were selected*/
