@@ -14,6 +14,11 @@ textarea {
     font-family: Helvetica, sans-serif;
 }
 
+.tab {
+	display: inline-block;
+	margin-left: 45px;
+}
+
 a {
 	text-decoration: none;
 }
@@ -85,6 +90,7 @@ ul {
 }
 
 .navbar-post {
+	display: none;
 	position: absolute;
 	top: 15%;
 	right: 18.5%;
@@ -137,6 +143,10 @@ ul {
 
 .home p {
 	margin-bottom: 0px;
+}
+
+.home div {
+	padding-top: 2px;
 }
 
 .user-info {
@@ -221,7 +231,6 @@ label[for="Building"] {
 
 .hidden {
    display: none;
-   
 }
 
 #create-post-modal {
