@@ -206,7 +206,12 @@ for(var i = 0; i < checkBoxButtons.length; i++)
 	checkBoxButtons[i].addEventListener('click',themeCheckBoxes)
 }
 
-
+/********************************************************************
+ * Function: sendGenerateRequest
+ * Desc: sends a generate request when the "generate" button is clicked
+ *       the request body is "postContent", which contains the
+ *       user-selected themes
+********************************************************************/
 function sendGenerateRequest() {
 	var descriptionBox = document.getElementById('description-box')
 	var themeType = "None"

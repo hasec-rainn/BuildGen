@@ -40,11 +40,11 @@ var buildGen = {
     },
 
     overviews: {
-        "spooky_overview": spooky_overview,
-        "magicshop_overview": magicshop_overview,
-        "generalshop_overview": generalshop_overview,
-        "goblinCave_overview": goblinCave_overview,
-        "wizardTower_overview": wizardTower_overview
+        "Spooky Room": spooky_overview,
+        "Magic Shop Room": magicshop_overview,
+        "General Shop Room": generalshop_overview,
+        "Goblin Cave Room": goblinCave_overview,
+        "Wizard Tower Room": wizardTower_overview
     }
 }
 

@@ -13,7 +13,6 @@ var themeData = require("./themes/themeList.json")
 var postData = require("./posts/postData.json")
 var genType = ""
 var genThemes = [""]
-/*NNvar genOverviews = [""] */
 var description =""
 console.log(themeData)
 
@@ -66,13 +65,27 @@ function AddSelection() {
     }
 
     /*Each element in "genThemes" corrosponds to the keyphrase of an
-    item in the js object "buildgen.themes". */
+    item in the js object "buildgen.themes". So, use "genThemes" elements 
+    to grab all user-selected themes from "buildGen" and push
+    them into the object "selectedItems.themes"*/
     for(i=0; i < genThemes.length; i++ ) {
         if( buildGen.themes[genThemes[i]] ) {
             selectedItems.themes.push(buildGen.themes[genThemes[i]])
         } else {
             console.log("AddSelection: Error the " 
             + i + "th buildGen theme DNE.")
+        }
+    }
+
+    /*The same as the above for loop, only this one handles overviews.
+    Note that overviews share the *same names* as themes within the
+    builgen object.*/
+    for(i=0; i < genThemes.length; i++ ) {
+        if( buildGen.overviews[genThemes[i]] ) {
+            selectedItems.overviews.push(buildGen.overviews[genThemes[i]])
+        } else {
+            console.log("AddSelection: Error the " 
+            + i + "th buildGen overview DNE.")
         }
     }
 
@@ -111,9 +124,8 @@ function RandNum(max) {
 /****************************************Generation functions****************************************************** */
 
 
-/*Currently gives the same response as giving the home page.
-This is because currently the homepage houses all the html functionality
-required for buildgen */
+/*Returns the buildgen page: the tool that allows the quick creation
+of rooms/buildings*/
 app.get("/buildgen", GiveGen)
 function GiveGen(req, res, next) {
     res.status(200).render('index', {themesData: themeData, postsData: postData, type: genType, postData: description})
@@ -122,11 +134,13 @@ function GiveGen(req, res, next) {
 }
 
 
+/*Request recieved by the server when the "Generate" button
+is clicked. Generates a new room/building description on the buildgen
+page based off user-selected themes */
 app.post("/buildgen/newGen", function(req,res,next) {
     console.log("== req.body:", req.body)
     genType = req.body.themeType
     genThemes = req.body.theme
-    /*NNgenOverviews = req.body.overviews */
 
     /*Checks which themes the user selected and returns an array of 
     the themes that were selected*/
@@ -165,6 +179,10 @@ app.post("/buildgen/newGen", function(req,res,next) {
     randomTheme = RandNum(selectedItems.themes.length)
     randomDesc = RandNum(selectedItems.themes[randomTheme].length)
     descriptors.center += selectedItems.themes[randomTheme][randomDesc]
+
+    var randomOverview = RandNum(selectedItems.overviews.length)
+    randomDesc = RandNum(selectedItems.overviews[randomOverview].length)
+    descriptors.center += selectedItems.overviews[randomOverview][randomDesc]
 
 
     /*The description that will be sent to the client. Composed of
