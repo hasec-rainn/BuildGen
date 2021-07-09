@@ -4,7 +4,10 @@ A wooden table covered with a red velvet cloth has three items neatly lined up o
 A brass rack holds a variety of magic staffs.
 There is a weapon halfway embedded in a stone. It is ___.
 A crystal ball floats above a dark pine table. Inside the ball, a purple mist swirls and churns like the waves of the sea.
-There is a oak service desk fitted with glass, allowing items to be placed and viewed from inside the desk. On top of the desk is a small copper bell with the words "ring for service" etched into it in common.
+There is an oak service desk fitted with glass, allowing items placed inside the desk to be viewed by those who approach it. On top of the desk is a small copper bell.
 There is a maple service desk. On top of the desk is a small iron bell.
 An iron rack with the caption "Enchanted" holds a variety of weapons: ___.
-A large book rests upon a polished oak lecturn. The book details the magical items sold at the shop.
+A paper rests upon a polished oak lecturn. The paper details the magical items sold at the shop.
+Bookshelves bear numerous books on spells and magic.
+An alchemy station bubbles as the brewing of potions takes place.
+Potions sit on maple shelves stacked atop one another. There are 5 shelves of potions in total.
