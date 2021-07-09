@@ -182,7 +182,7 @@ app.post("/buildgen/newGen", function(req,res,next) {
 
     var randomOverview = RandNum(selectedItems.overviews.length)
     randomDesc = RandNum(selectedItems.overviews[randomOverview].length)
-    descriptors.center += selectedItems.overviews[randomOverview][randomDesc]
+    descriptors.overview += selectedItems.overviews[randomOverview][randomDesc]
 
 
     /*The description that will be sent to the client. Composed of
