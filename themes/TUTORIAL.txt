@@ -1,9 +1,10 @@
-To add in a new theme, create a themeName.txt and a themeName_overview.txt file.
-On the first line, put a number that represents the total number of lines in the file. 
-MAKE SURE THIS IS ACCURATE. Otherwise, certain descriptions will not be read or a seg fault may occur.
+To add in a new theme, create a "themeName.txt" and a "themeName_overview.txt" file.
 On lines after the first, add in whatever text/description you desire.
 Note: One description per line. The program considers a single line a single description.
 
-After you've made your themeName.txt and a themeName_overview.txt file, add these into the buildgen.js file
+After you've made your themeName.txt and a themeName_overview.txt file, add these into the "buildgen.js" file
 by reading them in, using .split("\n") to split them into arrays of strings seperated by newline, and then adding
-your themeName and themeName_overview files to the themeArr and theme_overviewARR arrays respectively.
+your themeName and themeName_overview files to the themeArr and theme_overviewArr arrays respectively.
+Note: whatever your theme name, make sure to add "Room" at the end for the keyname. Ex: Spooky Room.
+
+Once this is done, add in the name of your theme to the "themeList.json" file
